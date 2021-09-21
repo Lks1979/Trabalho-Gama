@@ -2,6 +2,9 @@ package com.itau.bancoitau.controler;
 
 import java.util.List;
 
+import com.itau.bancoitau.model.Cliente;
+import com.itau.bancoitau.repository.ClienteRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
