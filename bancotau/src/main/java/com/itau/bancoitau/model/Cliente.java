@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity //Esta classe será mapeada no banco de dados
 @Table(name = "tb_cliente")
 public class Cliente {
