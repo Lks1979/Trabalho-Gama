@@ -16,7 +16,7 @@ public class Cliente {
 
     @Id //Esse atributo é a chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto incremento
-    private long cod_Interno;
+    private long CodInterno;
 
     @Column(name = "nome", length = 200, nullable = false)
     private String nome;
@@ -34,12 +34,12 @@ public class Cliente {
     private List<Conta> contas;
 
     //Métodos get e set
-    public long getCod_Interno() {
-        return cod_Interno;
+    public long getCodInterno() {
+        return CodInterno;
     }
 
-    public void setCod_Interno(long cod_Interno) {
-        this.cod_Interno = cod_Interno;
+    public void setCodInterno(long CodInterno) {
+        this.CodInterno = CodInterno;
     }
 
     public String getNome() {

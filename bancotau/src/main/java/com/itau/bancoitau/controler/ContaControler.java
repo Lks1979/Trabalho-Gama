@@ -2,8 +2,7 @@ package com.itau.bancoitau.controler;
 
 import java.util.List;
 
-import com.itau.bancoitau.model.Cliente;
-import com.itau.bancoitau.repository.ClienteRepo;
+import com.itau.bancoitau.model.Conta;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,26 +12,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController //Indica que a classe é um Controler Rest
-@RequestMapping("/user") //Toda vez que chegar com a requisição desse tipo (/user) ele aciona public class ClienteControler
+@RequestMapping("/conta") //Toda vez que chegar com a requisição desse tipo (/user) ele aciona public class ContaControler
 @CrossOrigin("*") // Liberando para acessos de diferentes origens
-public class ClienteControler {
+public class ContaControler {
     
     @Autowired //Pede para implementar a classe e os métodos de acesso
-    public ClienteRepo repo;
+    public ContaRepo repo;
 
     @GetMapping("/all")
-    public List<Cliente> obterTodos(){
-        return (List<Cliente>) repo.findAll(); // Casting  pega uma lista de objetos e devolve uma lista de clientes
+    public List<Conta> obterTodas(){
+        return (List<Conta>) repo.findAll(); // Casting  pega uma lista de objetos e devolve uma lista de contas
     }
 
     @GetMapping("/id/{codigo}")
-    public ResponseEntity<Cliente> ObterCliente(@PathVariable long codigo){
-    Cliente clienteEncontrado = repo.findById(codigo).orElse(null);
+    public ResponseEntity<Conta> ObterConta(@PathVariable long codigo){
+    Conta contaEncontrada = repo.findById(codigo).orElse(null);
 
-        if(clienteEncontrado != null){
-            return ResponseEntity.ok(clienteEncontrado); // retona 200 - ok
+        if(contaEncontrada != null){
+            return ResponseEntity.ok(contaEncontrada); // retona 200 - ok
         }else {
             return ResponseEntity.notFound().build(); // resposta vazia com 404
         }
