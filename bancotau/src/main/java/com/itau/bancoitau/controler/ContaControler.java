@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController //Indica que a classe é um Controler Rest
 @RequestMapping("/conta") //Toda vez que chegar com a requisição desse tipo (/user) ele aciona public class ContaControler
 @CrossOrigin("*") // Liberando para acessos de diferentes origens
@@ -28,7 +27,7 @@ public class ContaControler {
     }
 
     @GetMapping("/id/{codigo}")
-    public ResponseEntity<Conta> ObterConta(@PathVariable long codigo){
+    public ResponseEntity<Conta> ObterConta(@PathVariable Integer codigo){
     Conta contaEncontrada = repo.findById(codigo).orElse(null);
 
         if(contaEncontrada != null){
