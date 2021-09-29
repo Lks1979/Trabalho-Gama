@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity //Esta classe será mapeada no banco de dados
@@ -28,14 +29,12 @@ public class Conta {
     private int tipoDeConta;
 
     @Column(name = "saldo", nullable = false)
-    private long saldo;
-
-    @Column(name = "TitularDaConta", length = 200, nullable = false)
-    private String titularDaConta;
+    private long saldo;    
 
     // Referência para o  objeto do tipo cliente
     @ManyToOne
     @JoinColumn(name = "id_cliente")
+    @JsonIgnoreProperties("contas")
     private Cliente proprietario;
 
     public int getId() {
@@ -77,16 +76,14 @@ public class Conta {
     public void setSaldo(long saldo) {
         this.saldo = saldo;
     }
-
-    public String getTitularDaConta() {
-        return titularDaConta;
-    }
-
-    public void setTitularDaConta(String titularDaConta) {
-        this.titularDaConta = titularDaConta;
-    }
-
    
+    public Cliente getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Cliente proprietario) {
+        this.proprietario = proprietario;
+    }  
 
     
 }
